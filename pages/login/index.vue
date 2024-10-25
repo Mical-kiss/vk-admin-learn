@@ -88,7 +88,7 @@ export default {
 				vk.userCenter.checkToken({
 					loading: true,
 					success: data => {
-						that.login_success(data);
+						that.loginSuccess(data);
 					}
 				});
 			}
@@ -112,12 +112,12 @@ export default {
 						vk.setVuex("$user.login.username", "");
 						vk.setVuex("$user.login.password", "");
 					}
-					that.login_success(data);
+					that.loginSuccess(data);
 				}
 			});
 		},
 		//登陆成功
-		login_success(data={}) {
+		loginSuccess(data={}) {
 			let { userInfo={} } = data;
 			// 先清空下菜单缓存
 			vk.setVuex("$app.inited", false);

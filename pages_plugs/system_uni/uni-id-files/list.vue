@@ -123,7 +123,6 @@
 		<preview v-model="formDatas.preview"></preview>
 		<uploadProgress v-model="formDatas.uploadProgress" @success="getList();"></uploadProgress>
 
-
 	</view>
 </template>
 
@@ -216,7 +215,7 @@ export default {
 				url: "admin/system_uni/uni-id-files/files/kh/getList",
 				loading: { that, name: "loading.main" },
 				data: queryForm1,
-				success: (data) => {
+				success: data => {
 					that.data.content = data;
 					selectedIds.length = 0;
 				}
@@ -231,12 +230,8 @@ export default {
 					pageIndex: 1,
 					pageSize: 1000
 				},
-				success: (data) => {
-					that.data.navList = [
-						{ _id: "", name: "全部" },
-						{ _id: "null", name: "未分组" },
-						...data.rows
-					];
+				success: data => {
+					that.data.navList = [{ _id: "", name: "全部" }, { _id: "null", name: "未分组" }, ...data.rows];
 				}
 			});
 		},
@@ -255,7 +250,7 @@ export default {
 				data: {
 					_id
 				},
-				success: (data) => {
+				success: data => {
 					that.data.navList.splice(index, 1);
 				}
 			});
@@ -264,12 +259,12 @@ export default {
 		deleteFile(ids) {
 			vk.callFunction({
 				url: "admin/system_uni/uni-id-files/files/kh/delete",
-				title:"请求中...",
+				title: "请求中...",
 				data: {
 					_id: ids
 				},
-				success: (data) => {
-					if(data.num>0){
+				success: data => {
+					if (data.num > 0) {
 						if (typeof ids !== "object") ids = [ids];
 						ids.map(id => {
 							let index = vk.pubfn.getListIndex(that.data.content.rows, "_id", id);
@@ -282,18 +277,18 @@ export default {
 				}
 			});
 		},
-		uploadFile(){
+		uploadFile() {
 			let type = that.queryForm1.formData.type;
 			let fileType;
 			let extension = [];
-			if(type === "image"){
-				extension = ["png", "jpg", "jpeg", "gif", "bmp", "svg", "webp", "jfif", "dpg"];
+			if (type === "image") {
+				extension = ["jpg", "jpeg", "gif", "png", "svg", "webp", "jfif", "bmp", "dpg"];
 				fileType = "image";
-			}else if(type === "video"){
-				extension = ["avi", "mp3", "mp4", "3gp", "mov", "rmvb", "rm", "flv", "mkv", "wmv", "m3u8", "mpg", "mpeg", "dat", "asf"];
+			} else if (type === "video") {
+				extension = ["mp4", "mpg", "mpeg", "dat", "asf", "avi", "rm", "rmvb", "mov", "wmv", "flv", "mkv", "m3u8", "3gp", "mp3"];
 				fileType = "video";
-			}else if(type === "other"){
-				extension = ["txt","pdf","xls","xlsx","ppt","pptx","doc","docx","rar","zip"];
+			} else if (type === "other") {
+				extension = ["txt", "pdf", "xls", "xlsx", "ppt", "pptx", "doc", "docx", "rar", "zip"];
 			}
 			uni.chooseFile({
 				extension,
@@ -302,9 +297,9 @@ export default {
 						tempFilePaths: res.tempFilePaths,
 						tempFiles: res.tempFiles,
 						categoryId: that.queryForm1.formData.category_id,
-						fileType,
+						fileType
 					};
-					vk.pubfn.openForm('uploadProgress', { item });
+					vk.pubfn.openForm("uploadProgress", { item });
 				}
 			});
 		},
@@ -321,13 +316,13 @@ export default {
 			});
 		},
 		// 预览
-		preview(item){
+		preview(item) {
 			let { type, url } = item;
-			if(type === "image"){
-				vk.pubfn.openForm('preview', { item })
-			}else if(type === "video"){
-				vk.pubfn.openForm('preview', { item })
-			}else{
+			if (type === "image") {
+				vk.pubfn.openForm("preview", { item });
+			} else if (type === "video") {
+				vk.pubfn.openForm("preview", { item });
+			} else {
 				vk.toast("暂不支持该类型文件的预览");
 			}
 		},
@@ -342,7 +337,7 @@ export default {
 		},
 		// 全选
 		selectAll() {
-			if (that.selectedIds.length &&that.data.content.rows.length == that.selectedIds.length) {
+			if (that.selectedIds.length && that.data.content.rows.length == that.selectedIds.length) {
 				that.selectedIds = [];
 			} else {
 				that.data.content.rows.forEach((value, index, arr) => {
@@ -357,27 +352,29 @@ export default {
 	watch: {},
 	// 过滤器
 	filters: {
-		suffixFilter(name=""){
+		suffixFilter(name = "") {
 			let arr = name.split(".");
-			return arr[arr.length-1];
+			return arr[arr.length - 1];
 		},
-		coverImageFilter(item){
+		coverImageFilter(item) {
 			let src = "";
-			let { cover_image, url, width=0, height=0 } = item;
-			if(cover_image){
+			let { cover_image, url, width = 0, height = 0 } = item;
+			if (cover_image) {
 				src = cover_image;
-			}else{
+			} else {
 				let aliyun = `x-oss-process=video/snapshot,t_1000,f_jpg,w_${width},h_${height},m_fast`;
 				let qiniu = `vframe/jpg/offset/1/w/${width}/h/${height}`;
-				src = `${url}?${aliyun}&${qiniu}`;
+				src = url;
+				src += src.indexOf("?") === -1 ? "?" : "&";
+				src += `${aliyun}&${qiniu}`;
 			}
 			return src;
 		},
-		durationFilter(value){
+		durationFilter(value) {
 			let result = parseInt(value);
-			let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600);
-			let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));
-			let s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60));
+			let h = Math.floor(result / 3600) < 10 ? "0" + Math.floor(result / 3600) : Math.floor(result / 3600);
+			let m = Math.floor((result / 60) % 60) < 10 ? "0" + Math.floor((result / 60) % 60) : Math.floor((result / 60) % 60);
+			let s = Math.floor(result % 60) < 10 ? "0" + Math.floor(result % 60) : Math.floor(result % 60);
 			return `${h}:${m}:${s}`;
 		}
 	},
@@ -418,13 +415,11 @@ page,
 	overflow: hidden;
 	.search-input {
 		width: 200px;
-
 	}
 	.el-button {
 		height: 32px;
 	}
 }
-
 
 .nav {
 	height: 100%;
@@ -519,7 +514,7 @@ page,
 .choose-image {
 	background-color: #ecf6fd !important;
 	border: 1px solid #daedff;
-	.tips{
+	.tips {
 		background-color: #ecf6fd;
 	}
 }
@@ -535,40 +530,40 @@ page,
 		width: 100%;
 		height: 100%;
 	}
-	.suffix{
+	.suffix {
 		position: absolute;
-		top:2px;
+		top: 2px;
 		right: 6px;
 		font-size: 12px;
 		color: #a7a7a7;
 	}
-	.duration{
+	.duration {
 		position: absolute;
-		bottom:0px;
+		bottom: 0px;
 		left: 0px;
 		font-size: 12px;
-		color: #FFFFFF;
+		color: #ffffff;
 		background-color: #b2b2b2;
 		padding: 0px 2px;
 	}
-	.size{
+	.size {
 		position: absolute;
-		bottom:0px;
+		bottom: 0px;
 		right: 0px;
 		font-size: 12px;
-		color: #FFFFFF;
+		color: #ffffff;
 		background-color: #b2b2b2;
 		padding: 0px 2px;
 	}
-	.video-play-btn{
+	.video-play-btn {
 		position: absolute;
-		top:54px;
-		left:47px;
-		background-color: rgba(66,66,66,0.6);
+		top: 54px;
+		left: 47px;
+		background-color: rgba(66, 66, 66, 0.6);
 		border-radius: 50%;
 	}
 
-	.other-icon{
+	.other-icon {
 		display: flex;
 		width: 100%;
 		height: 100%;
@@ -677,7 +672,7 @@ page,
 	margin: 0 10px;
 	color: #3091f2;
 }
-::v-deep .input-border-radius-4004 .el-input__inner{
+::v-deep .input-border-radius-4004 .el-input__inner {
 	border-radius: 4px 0px 0px 4px;
 }
 </style>

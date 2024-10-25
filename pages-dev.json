@@ -3,7 +3,9 @@
 			"root": "pages_template/components",
 			"pages": [
 				{ "path": "icons/vk-icons" },
+				{ "path": "icons/vk-icons-page", "style": { "topWindow": false, "leftWindow": false } },
 				{ "path": "icons/element-icons" },
+				{ "path": "icons/element-icons-page", "style": { "topWindow": false, "leftWindow": false } },
 				{ "path": "table/table-basic" },
 				{ "path": "table/table-easy" },
         { "path": "table/table-query" },

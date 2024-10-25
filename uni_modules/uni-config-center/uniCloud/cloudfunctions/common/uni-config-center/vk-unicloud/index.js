@@ -15,18 +15,18 @@ try {
 } 
 
 module.exports = {
-	"uni":uniIdConfig,
+	"uni": uniIdConfig,
 	"uni-pay": uniPayConfig,
-	"vk":{
-		"system":{
+	"vk": {
+		"system": {
 			// 若serviceShutdow:true，则所有云函数无法访问（适用于需要临时关闭后端服务的情况，如迁移数据）
 			// 注意：本地调试时，需要重新启动本地服务才能生效。
-			"serviceShutdown":false,
-			"serviceShutdownDescription":"系统维护中，预计2小时恢复!",
+			"serviceShutdown": false,
+			"serviceShutdownDescription": "系统维护中，预计2小时恢复!",
 			// 云函数默认时区（中国为8）
 			"targetTimezone": 8
 		},
-		// 加密的密钥
+		// 服务端加密的密钥
 		"crypto": {
 			"aes": "dad4c0cb88c7d005bc5e844b8e79a9f0", // 对称加密的密钥，长度固定32位（此处建议修改成自己的密钥）
 		},
@@ -67,32 +67,32 @@ module.exports = {
 				}
 			},
 			// 日志服务
-			"log":{
+			"log": {
 				// 用户登录日志
-				"login":{
-					"status":true	// 是否开启用户登录日志
+				"login": {
+					"status": true // 是否开启用户登录日志
 				}
 			},
 			// 短信服务
 			"sms": {
 				// 阿里云短信服务
 				"aliyun": {
-					"enable": false,					// 是否使用阿里云短信代替unicloud短信发送短信验证码
-					"accessKeyId": "",				// 短信密钥key
-					"accessKeySecret": "",		// 短信密钥secret
-					"signName": "", 					// 默认签名
+					"enable": false,                // 是否使用阿里云短信代替unicloud短信发送短信验证码
+					"accessKeyId": "",              // 短信密钥key
+					"accessKeySecret": "",          // 短信密钥secret
+					"signName": "",                 // 默认签名
 					"templateCode": {
-						"verifyCode": ""				// 验证码短信模板 - 配合uni-id需要
+						"verifyCode": ""              // 验证码短信模板 - 配合uni-id需要
 					}
 				}
 			},
 			// 开放平台api
-			"openapi":{
+			"openapi": {
 				// 百度开放平台 (主要用于身份证识别,营业执照识别等API)
 				// API Key申请地址：https://cloud.baidu.com/doc/OCR/s/rk3h7xzck 点击右上角注册
-				"baidu":{
-					"appid" : "",       // 对应的API Key
-					"appsecret" : ""    // 对应的Secret Key
+				"baidu": {
+					"appid": "",    // 对应的API Key
+					"appsecret": "" // 对应的Secret Key
 				}
 			},
 			// 云储存相关配置
@@ -119,18 +119,19 @@ module.exports = {
 				}
 			}
 		},
-		"db":{
-			"unicloud":{
-				"maxLimit" : 1000,	// 最大limit限制(目前腾讯云最大1000,阿里云最大1000)
-				"cancelAddTime" : false,// 取消vk.baseDao.add 时自动生成_add_time和_add_time_str
-        "getTableData":{
-          "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
-        }
+		"db": {
+			"unicloud": {
+				"maxLimit": 1000, // 最大limit限制(目前腾讯云最大1000,阿里云最大1000)
+				"cancelAddTime": false, // 取消 vk.baseDao.add 时自动生成 _add_time 和 _add_time_str
+				"cancelAddTimeStr": false, // 仅取消 vk.baseDao.add 时自动生成的 _add_time_str，若已设置 cancelAddTime 为true，则 cancelAddTimeStr 也会强制为true
+				"getTableData": {
+					"sortArr": [{ "name": "_add_time", "type": "desc" }], // vk.baseDao.getTableData 默认排序规则 vk.db.unicloud.getTableData.sortArr
+				}
 			}
 		},
 		// 其他小程序的密钥 当需要多个小程序绑定同一服务空间,并调用小程序服务端API时需要填写 暂只支持微信小程序
 		"oauth": {
-			// 微信小程序
+			// 微信（含小程序\公众号\APP）
 			"weixin": {
 				// 密钥列表
 				"list": [
@@ -138,7 +139,7 @@ module.exports = {
 					{ "appid": "", "appsecret": "" }
 				]
 			},
-			// 支付宝
+			// 支付宝小程序
 			"alipay": {
 				// 密钥列表
 				"list": [
@@ -146,7 +147,7 @@ module.exports = {
 					{ "appid": "", "privateKey": "" }
 				]
 			},
-			// qq
+			// qq小程序
 			"qq": {
 				// 密钥列表
 				"list": [
@@ -154,7 +155,7 @@ module.exports = {
 					{ "appid": "", "appsecret": "" }
 				]
 			},
-			// 抖音
+			// 抖音小程序
 			"toutiao": {
 				// 密钥列表
 				"list": [

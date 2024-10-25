@@ -1,8 +1,7 @@
-[
-	{
+[{
 		"menu_id": "components-admin",
 		"name": "VK框架 组件演示",
-		"comment": "以下菜单在正式环境不会出现!",
+		"comment":"以下菜单在正式环境不会出现!",
 		"icon": "el-icon-star-off",
 		"url": "",
 		"sort": 999,
@@ -11,8 +10,7 @@
 				"menu_id": "vk-data-icon",
 				"name": "Icon 图标",
 				"icon": "el-icon-picture",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-icon-vk",
 						"name": "VK框架 图标",
 						"icon": "",
@@ -25,13 +23,11 @@
 						"url": "/pages_template/components/icons/element-icons"
 					}
 				]
-			},
-			{
+			},{
 				"menu_id": "vk-data-table",
 				"name": "Table 智能表格",
 				"icon": "el-icon-s-grid",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-table-basic",
 						"name": "基础用法",
 						"icon": "",
@@ -43,26 +39,25 @@
 						"icon": "",
 						"url": "/pages_template/components/table/table-easy"
 					},
-					{
-						"menu_id": "vk-data-table-query",
-						"name": "搜索折叠",
-						"icon": "",
-						"url": "/pages_template/components/table/table-query"
-					},
-					{
-						"menu_id": "vk-data-table-expand",
-						"name": "表格行展开",
-						"icon": "",
-						"url": "/pages_template/components/table/table-expand"
-					}
+          {
+            "menu_id": "vk-data-table-query",
+            "name": "搜索折叠",
+            "icon": "",
+            "url": "/pages_template/components/table/table-query"
+          },
+          {
+            "menu_id": "vk-data-table-expand",
+            "name": "表格行展开",
+            "icon": "",
+            "url": "/pages_template/components/table/table-expand"
+          }
 				]
 			},
 			{
 				"menu_id": "vk-data-form",
 				"name": "Form 万能表单",
 				"icon": "vk-icon-edit",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-form-basic",
 						"name": "基础用法",
 						"icon": "",
@@ -92,12 +87,12 @@
 						"icon": "",
 						"url": "/pages_template/components/form/form-slot"
 					},
-					{
-						"menu_id": "vk-data-form-array-object",
-						"name": "子表单",
-						"icon": "",
-						"url": "/pages_template/components/form/form-array-object"
-					},
+          {
+          	"menu_id": "vk-data-form-array-object",
+          	"name": "子表单",
+          	"icon": "",
+          	"url": "/pages_template/components/form/form-array-object"
+          },
 					{
 						"menu_id": "vk-data-form-pro",
 						"name": "万能表单",
@@ -110,8 +105,7 @@
 				"menu_id": "vk-data-input",
 				"name": "Input 输入",
 				"icon": "el-icon-edit-outline",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-input-number",
 						"name": "数字输入框",
 						"icon": "",
@@ -177,8 +171,7 @@
 				"menu_id": "vk-data-detail",
 				"name": "Detail 详情展示",
 				"icon": "el-icon-document",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-detail-basic",
 						"name": "基础形式",
 						"icon": "",
@@ -196,8 +189,7 @@
 				"menu_id": "vk-data-dialog",
 				"name": "Dialog 弹窗",
 				"icon": "el-icon-copy-document",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-dialog-basic",
 						"name": "基础用法",
 						"icon": "",
@@ -221,8 +213,7 @@
 				"menu_id": "vk-data-upload",
 				"name": "Upload 上传",
 				"icon": "el-icon-upload2",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "vk-data-upload-basic",
 						"name": "基础用法",
 						"icon": "",
@@ -240,37 +231,33 @@
 				"menu_id": "vk-data-editor",
 				"name": "editor 编辑器",
 				"icon": "el-icon-edit-outline",
-				"children": [
-					{
-						"menu_id": "vk-data-editor-1",
-						"name": "富文本-editor",
-						"icon": "",
-						"url": "/pages_template/components/editor/editor"
-					},
-					{
-						"menu_id": "vk-data-editor-2",
-						"name": "富文本-tinymce",
-						"icon": "",
-						"url": "/pages_template/components/editor/editor-tinymce"
-					}
-				]
+				"children": [{
+					"menu_id": "vk-data-editor-1",
+					"name": "富文本-editor",
+					"icon": "",
+					"url": "/pages_template/components/editor/editor"
+				},
+				{
+					"menu_id": "vk-data-editor-2",
+					"name": "富文本-tinymce",
+					"icon": "",
+					"url": "/pages_template/components/editor/editor-tinymce"
+				}]
 			}
 		]
 	},
 	{
 		"menu_id": "__demo__",
 		"name": "Element 静态功能演示",
-		"comment": "以下菜单在正式环境不会出现!",
+		"comment":"以下菜单在正式环境不会出现!",
 		"icon": "el-icon-star-off",
 		"url": "",
 		"sort": 1000,
-		"children": [
-			{
+		"children": [{
 				"menu_id": "__demo__popup",
 				"name": "弹窗页面",
 				"icon": "el-icon-tickets",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "__demo__popup-alert",
 						"name": "alert",
 						"icon": "",
@@ -336,8 +323,7 @@
 				"menu_id": "__demo__form",
 				"name": "表单页面",
 				"icon": "el-icon-s-order",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "__demo__form-basic-form",
 						"name": "基础表单",
 						"icon": "",
@@ -361,8 +347,7 @@
 				"menu_id": "__demo__result",
 				"name": "结果页",
 				"icon": "el-icon-circle-check",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "__demo__result-success",
 						"name": "成功页",
 						"icon": "",
@@ -380,8 +365,7 @@
 				"menu_id": "__demo__error",
 				"name": "异常页面",
 				"icon": "el-icon-warning-outline",
-				"children": [
-					{
+				"children": [{
 						"menu_id": "__demo__error-403",
 						"name": "403",
 						"icon": "",
@@ -405,94 +389,86 @@
 				"menu_id": "__demo__detail",
 				"name": "详情页面",
 				"icon": "el-icon-tickets",
-				"children": [
-					{
-						"menu_id": "__demo__detail-comprehensive",
-						"name": "综合详情页",
-						"icon": "",
-						"url": "/pages_template/element/detail/detail"
-					}
-				]
+				"children": [{
+					"menu_id": "__demo__detail-comprehensive",
+					"name": "综合详情页",
+					"icon": "",
+					"url": "/pages_template/element/detail/detail"
+				}]
 			},
 			{
 				"menu_id": "__demo__setting",
 				"name": "设置",
 				"icon": "el-icon-s-tools",
-				"children": [
-					{
-						"menu_id": "__demo__setting-account",
-						"name": "账户设置",
-						"icon": "",
-						"url": "/pages_template/element/setting/account"
-					}
-				]
+				"children": [{
+					"menu_id": "__demo__setting-account",
+					"name": "账户设置",
+					"icon": "",
+					"url": "/pages_template/element/setting/account"
+				}]
 			}
 		]
 	},
 	{
 		"menu_id": "__utils__",
 		"name": "VK框架实用工具",
-		"comment": "以下菜单在正式环境不会出现!",
+		"comment":"以下菜单在正式环境不会出现!",
 		"icon": "el-icon-star-off",
 		"url": "",
 		"sort": 1001,
-		"children": [
-			{
-				"menu_id": "__utils__vk-form-visualizer",
-				"name": "表单可视化设计器",
-				"icon": "el-icon-tickets",
-				"url": "https://vkunicloud.fsq.pub/vk-form-visualizer/"
-			}
-		]
+		"children": [{
+			"menu_id": "__utils__vk-form-visualizer",
+			"name": "表单可视化设计器",
+			"icon": "el-icon-tickets",
+			"url": "https://vkunicloud.fsq.pub/vk-form-visualizer/"
+		}]
 	},
 	{
 		"menu_id": "__links__",
 		"name": "友情链接",
-		"comment": "以下菜单在正式环境不会出现!",
+		"comment":"以下菜单在正式环境不会出现!",
 		"icon": "el-icon-star-off",
 		"url": "",
 		"sort": 1002,
 		"children": [
-			{
-				"menu_id": "__links__1",
-				"name": "admin框架文档",
-				"icon": "el-icon-tickets",
-				"url": "https://vkdoc.fsq.pub/admin/"
-			},
-			{
-				"menu_id": "__links__2",
-				"name": "更多VK插件",
-				"icon": "el-icon-tickets",
-				"url": "https://ext.dcloud.net.cn/search?q=vk"
-			},
-			{
-				"menu_id": "__links__3",
-				"name": "unicloud文档",
-				"icon": "el-icon-tickets",
-				"url": "https://uniapp.dcloud.io/uniCloud/README"
-			},
-			{
-				"menu_id": "__links__4",
-				"name": "element文档",
-				"icon": "el-icon-tickets",
-				"url": "https://element.eleme.cn/#/zh-CN/component/button"
-			}
-		]
-	},
-	{
+		{
+			"menu_id": "__links__1",
+			"name": "admin框架文档",
+			"icon": "el-icon-tickets",
+			"url": "https://vkdoc.fsq.pub/admin/"
+		},
+		{
+			"menu_id": "__links__2",
+			"name": "更多VK插件",
+			"icon": "el-icon-tickets",
+			"url": "https://ext.dcloud.net.cn/search?q=vk"
+		},
+		{
+			"menu_id": "__links__3",
+			"name": "unicloud文档",
+			"icon": "el-icon-tickets",
+			"url": "https://uniapp.dcloud.io/uniCloud/README"
+		},
+		{
+			"menu_id": "__links__4",
+			"name": "element文档",
+			"icon": "el-icon-tickets",
+			"url": "https://element.eleme.cn/#/zh-CN/component/button"
+		}]
+	},{
 		"menu_id": "__test__",
 		"name": "测试权限用",
-		"comment": "以下菜单在正式环境不会出现!",
+		"comment":"以下菜单在正式环境不会出现!",
 		"icon": "el-icon-star-off",
 		"url": "",
 		"sort": 900,
 		"children": [
-			{
-				"menu_id": "__test__1",
-				"name": "查看表格",
-				"icon": "el-icon-tickets",
-				"url": "/pages_template/components/table/table-easy"
-			}
+		{
+			"menu_id": "__test__1",
+			"name": "查看表格",
+			"icon": "el-icon-tickets",
+			"url": "/pages_template/components/table/table-easy"
+		}
 		]
 	}
 ]

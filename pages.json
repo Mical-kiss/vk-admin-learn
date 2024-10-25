@@ -28,7 +28,8 @@
 				{ "path": "system_uni/vk-components-dynamic" },
 				{ "path": "system_uni/uni-id-files/list" },
 				{ "path": "system_uni/vk-pay-orders" },
-				{ "path": "system_uni/vk-ws-connection" }
+				{ "path": "system_uni/vk-ws-connection" },
+				{ "path": "system_uni/vk-error-log" }
 			]
 		}
 	],

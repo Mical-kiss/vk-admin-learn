@@ -30,11 +30,27 @@
 			}
 		}
 	},
+	"h5-weixin": {
+		"oauth": {
+			"weixin": {
+				"appid": "",
+				"appsecret": ""
+			}
+		}
+	},
 	"mp-alipay": {
 		"oauth": {
 			"alipay": {
 				"appid": "",
 				"privateKey": ""
+			}
+		}
+	},
+	"mp-qq": {
+		"oauth": {
+			"qq": {
+				"appid": "",
+				"appsecret": ""
 			}
 		}
 	},
